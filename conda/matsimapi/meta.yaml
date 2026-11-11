@@ -1,0 +1,38 @@
+{% set name = "matsimapi" %}
+{% set version = "0.16.0" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  path: ../../packages/matsimapi
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  entry_points:
+    - matsimapi = matsimapi.cli:main
+
+requirements:
+  host:
+    - python >=3.10
+    - pip
+    - setuptools >=64
+  run:
+    - python >=3.10
+    - numpy >=1.24
+    - scipy >=1.11
+    - pandas >=2.0
+    - ase >=3.24
+    - pydantic >=2
+    - gpumd-toolkit >=0.4    # ~/repos/GPUMD_toolkit/conda/meta.yaml で先に作る
+    - atomsk-kit >=0.1
+
+test:
+  commands:
+    - matsimapi --help
+
+about:
+  summary: GPUMD・SevenNet による材料シミュレーションの実行エンジン (Python API・CLI・MCP サーバー)

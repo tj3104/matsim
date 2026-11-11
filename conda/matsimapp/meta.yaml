@@ -1,0 +1,35 @@
+{% set name = "matsimapp" %}
+{% set version = "0.16.0" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  path: ../../packages/matsimapp
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  entry_points:
+    - matsimapp = matsimapp.cli:main
+
+requirements:
+  host:
+    - python >=3.10
+    - pip
+    - setuptools >=64
+  run:
+    - python >=3.10
+    - matsimapi >=0.16,<0.17
+    - fastapi
+    - uvicorn-standard
+    - python-multipart
+
+test:
+  commands:
+    - matsimapp --help
+
+about:
+  summary: スマホのブラウザから GPUMD の計算を動かす web UI

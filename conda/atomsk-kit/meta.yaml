@@ -1,0 +1,32 @@
+{% set name = "atomsk-kit" %}
+{% set version = "0.1.0" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  path: ../../packages/atomsk_kit
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python >=3.10
+    - pip
+    - setuptools >=64
+  run:
+    - python >=3.10
+    - numpy
+    - scipy
+    - ase
+
+test:
+  imports:
+    - atomsk_kit
+
+about:
+  summary: Atomsk を Python (ASE の Atoms) から使いやすくするキット

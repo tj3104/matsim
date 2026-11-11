@@ -1,0 +1,14 @@
+{
+  "name": "MatSimApp",
+  "short_name": "MatSimApp",
+  "description": "スマホから GPUMD の分子動力学計算を投入・監視・確認する",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f6fb",
+  "theme_color": "#2f6fed",
+  "lang": "ja",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"}
+  ]
+}

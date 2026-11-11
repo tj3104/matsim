@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atomsk-kit"
+version = "0.1.0"
+description = "Atomsk を Python (ASE の Atoms) から使いやすくするキット。原子の編集・グラニュラー構造などの Python 実装も含む"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "ase"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

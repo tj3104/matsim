@@ -1,0 +1,23 @@
+# この PC だけの設定と秘密 (ひな形は paths.example.env・.env.example)
+paths.env
+.env
+.mcp.json
+# データ・記録・バックアップ (計算結果・会話・アカウント)
+/data/
+/backup/
+/dist/
+/minutes/
+mission.md
+matdev.json
+# 試験の出力
+01_test/data_*/
+01_test/screenshots/
+01_test/escape_report.json
+*.log
+# Python のキャッシュ・ビルドの生成物
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+.venv/
+.pytest_cache/

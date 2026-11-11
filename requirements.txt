@@ -1,0 +1,7 @@
+# 開発用: このリポジトリのパッケージを編集可能な形で入れる
+#   uv pip install -r requirements.txt --python ~/.venv/gpumd312/bin/python
+# Atomsk 本体は ~/repos/atomsk でビルドしたものを、gpumd-toolkit は ~/repos/GPUMD_toolkit を gpumd312 にインストール済みのものを使う
+-e ./packages/atomsk_kit
+-e ./packages/matsimapi[mcp,mp]
+-e ./packages/matsimapp
+pillow

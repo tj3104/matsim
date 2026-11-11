@@ -1,0 +1,26 @@
+# conda env create -f conda/environment.yml  (リポジトリのルートで実行する)
+# GPUMD_toolkit は ~/repos/GPUMD_toolkit にある前提。GPUMD 本体・Atomsk は別にビルドする
+name: matsim
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - ase>=3.24
+  - numpy>=1.24
+  - scipy>=1.11
+  - pandas>=2.0
+  - matplotlib-base>=3.8
+  - joblib>=1.4
+  - pydantic>=2
+  - fastapi
+  - uvicorn-standard
+  - python-multipart
+  - pymatgen
+  - mp-api
+  - pip
+  - pip:
+      - mcp>=2.0
+      - ${HOME}/repos/GPUMD_toolkit
+      - ../packages/atomsk_kit
+      - ../packages/matsimapi
+      - ../packages/matsimapp

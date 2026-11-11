@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matsimapp"
+version = "0.16.0"
+description = "スマホのブラウザから GPUMD の計算を動かす web UI (計算は matsimapi が担当する)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "matsimapi>=0.16,<0.17",
+    "fastapi",
+    "uvicorn[standard]",
+    "python-multipart",
+]
+
+[project.scripts]
+matsimapp = "matsimapp.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+matsimapp = ["frontend/**/*", "docs/*"]

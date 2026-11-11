@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matsimapi"
+version = "0.16.0"
+description = "GPUMD・SevenNet による材料シミュレーションの実行エンジン (Python API・CLI・MCP サーバー)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.11",
+    "pandas>=2.0",
+    "ase>=3.24",
+    "pydantic>=2.0",
+    "gpumd-toolkit>=0.4",
+    "atomsk-kit>=0.1",
+]
+
+[project.optional-dependencies]
+# LLM から使う MCP サーバー
+mcp = ["mcp>=2.0"]
+# Materials Project からの構造の取得
+mp = ["mp-api", "pymatgen"]
+# SevenNet とファインチューニング。torch は GPU に合うものを先に入れる
+ml = ["sevenn", "phonopy", "torchnep"]
+all = ["matsimapi[mcp,mp,ml]"]
+
+[project.scripts]
+matsimapi = "matsimapi.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
